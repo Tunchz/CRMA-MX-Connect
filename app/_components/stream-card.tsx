@@ -25,7 +25,7 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import Cam from "./cam";
-import { cn, fThaiDate, formatDatetime } from "@/lib/utils";
+import { cn, formatDatetime } from "@/lib/utils";
 
 export default function StreamCard({
   props,
