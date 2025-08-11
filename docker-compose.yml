@@ -1,0 +1,47 @@
+version: "3.4"
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:1.4.0@sha256:8611ad6c3343d4b9f0329d63edf00ed62766ba2bec2701ee5f3fcb04365ad428
+    container_name: mediamtx
+    restart: unless-stopped
+    environment:
+      - MTX_API=yes
+      - MTX_APIADDRESS=:9997
+      - MTX_RECORD=yes
+    volumes:
+      - ${MEDIAMTX_RECORDINGS_DIR}:/recordings
+    networks:
+      - mtx
+    ports:
+      - 8554:8554
+      - 8890:8890/udp
+      - 1935:1935
+      - 8888:8888
+      - 8889:8889
+      - 9997:9997
+  mediamtx-connect:
+    build:
+      context: ./
+    depends_on:
+      - mediamtx
+    container_name: mediamtx-connect
+    restart: unless-stopped
+    networks:
+      - mtx
+    volumes:
+      - ${MEDIAMTX_RECORDINGS_DIR}:/recordings
+    ports:
+      - 3000:3000
+  demo-streams:
+    tty: true
+    build:
+      context: ./dev
+    depends_on:
+      - mediamtx
+    container_name: demo-streams
+    restart: unless-stopped
+    networks:
+      - mtx
+networks:
+  mtx:
+    name: mtx
