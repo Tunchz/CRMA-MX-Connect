@@ -38,7 +38,7 @@ export default function DisplayStreams() {
                     props={{
                         streamName: name,
                         readyTime,
-                        hlsAddress: mediaMtxConfig?.data.hlsAddress,
+                        hlsAddress: config.mediaMtxApiPort?mediaMtxConfig?.data.hlsAddress:"",
                         remoteMediaMtxUrl: config.remoteMediaMtxUrl,
                     }}
                     ></StreamCard>

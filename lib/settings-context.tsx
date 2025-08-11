@@ -65,10 +65,11 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
 
 
   const getConfig = async () => {
-    const temp_config:any = clientConfig; //await getAppConfig();
-    setConfig(temp_config);
+    const config:any = clientConfig; //await getAppConfig();
+    // console.log("/////////////// api url : ", config.mediaMtxApiPort?`${config.mediaMtxUrl}:${config.mediaMtxApiPort}`:`${config.mediaMtxUrl}`);
+    setConfig(config);
     setApi(new Api({
-      baseUrl: `${temp_config.mediaMtxUrl}:${temp_config.mediaMtxApiPort}`,
+      baseUrl: config.mediaMtxApiPort?`${config.mediaMtxUrl}:${config.mediaMtxApiPort}`:`${config.mediaMtxUrl}`,
     }));
     setIsConfigLoad(true);
     setIsLoad(true);

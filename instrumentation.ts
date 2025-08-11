@@ -26,13 +26,16 @@ export async function register() {
 
     let config = {
           basePath: 'CRMA-MX',
-          mediaMtxApiPort: 9997,
-          mediaMtxUrl: "http://localhost",
+          mediaMtxApiPort: 
+            NODE_ENV === "production" ? '' : 9997,
+          mediaMtxUrl: 
+          NODE_ENV === "production" ? "https://academics.crma.dev/mx-api" : "http://localhost",
           recordingsDirectory:
             NODE_ENV === "production" ? "../CRMA-MX/recordings" : "../CRMA-MX/recordings",
           screenshotsDirectory:
             NODE_ENV === "production" ? "../CRMA-MX/screenshots" : "../CRMA-MX/screenshots",
-          remoteMediaMtxUrl: "http://localhost",
+          remoteMediaMtxUrl: 
+            NODE_ENV === "production" ? "https://academics.crma.dev/mx" : "http://localhost",
         }
 
     console.log({ config });

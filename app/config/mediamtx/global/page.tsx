@@ -11,7 +11,7 @@ export default async function Global() {
   }
   let globalConf: GlobalConf | undefined;
   const api = new Api({
-    baseUrl: `${config.mediaMtxUrl}:${config.mediaMtxApiPort}`,
+    baseUrl: config.mediaMtxApiPort?`${config.mediaMtxUrl}:${config.mediaMtxApiPort}`:`${config.mediaMtxUrl}`,
   });
 
   try {

@@ -14,7 +14,7 @@ export default async function updateGlobalConfig({
   }
   console.log("Updating Global Config");
   const api = new Api({
-    baseUrl: `${config.mediaMtxUrl}:${config.mediaMtxApiPort}`,
+    baseUrl: config.mediaMtxApiPort?`${config.mediaMtxUrl}:${config.mediaMtxApiPort}`:`${config.mediaMtxUrl}`,
   });
 
   try {
