@@ -1,0 +1,1 @@
+source ~/.nvm/nvm.sh && nvm use 24 && PORT=3001 npm start
