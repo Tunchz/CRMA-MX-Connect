@@ -13,5 +13,5 @@ export const clientConfig = {
     mediaMtxUrl: 'https://academics.crma.dev/mx-api',
     recordingsDirectory: '../CRMA-MX/recordings',
     screenshotsDirectory: '../CRMA-MX/screenshots',
-    remoteMediaMtxUrl: 'https://academics.crma.dev/mx'
+    remoteMediaMtxUrl: 'https://academics.crma.dev/hls'
   };

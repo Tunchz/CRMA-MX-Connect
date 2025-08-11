@@ -35,7 +35,7 @@ export async function register() {
           screenshotsDirectory:
             NODE_ENV === "production" ? "../CRMA-MX/screenshots" : "../CRMA-MX/screenshots",
           remoteMediaMtxUrl: 
-            NODE_ENV === "production" ? "https://academics.crma.dev/mx" : "http://localhost",
+            NODE_ENV === "production" ? "https://academics.crma.dev/hls" : "http://localhost",
         }
 
     console.log({ config });
