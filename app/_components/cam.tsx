@@ -22,7 +22,8 @@ export default function Cam({ props }: { props: { address: string } }) {
           console.log("fatal hls error");
 
           hls.destroy();
-          setTimeout(() => create(video), 2000);
+
+          video&&setTimeout(() => create(video), 2000);
         }
       });
 
@@ -50,8 +51,9 @@ export default function Cam({ props }: { props: { address: string } }) {
     }
     const hls = create(videoRef.current);
     return () => {
-      console.log("hls destroy");
+      console.log("useEffect return >> hls destroy");
       hls?.destroy();
+      videoRef.current = null;
     };
   }, [props.address]);
   return (

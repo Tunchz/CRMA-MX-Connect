@@ -7,28 +7,29 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertTriangle } from "lucide-react";
 
 export default function DisplayStreams() {
-    const { mediaMtxConfig, config, paths, colNum } = useSettings();
+    const { mediaMtxConfig, config, paths, colNum, isInit } = useSettings();
 
-
+    // console.log("----- isInit | config | paths?.data.items ", isInit, config, paths?.data.items)
     return (
-        !config?<div>Invalid Config</div>
+        !isInit?null
+        :!config?<div>Invalid Config</div>
         :!config.remoteMediaMtxUrl ? (
             <Alert>
             <AlertTriangle className="h-10 w-10" />
-            <AlertTitle>Set up your Remote MediaMTX Url!</AlertTitle>
+            <AlertTitle>Set up your Remote CRMA-MX Url!</AlertTitle>
             <AlertDescription>
-                {`Head over to the config page. You need to set up your remote MediaMTX Url to view your streams`}
+                {`Head over to the config page. You need to set up your remote CRMA-MX Url to view your streams`}
             </AlertDescription>
             </Alert>
         )
         : mediaMtxConfig?.data.hlsAddress ? (
             <GridLayout columnLayout={colNum}>
-                {!paths?.data.items !== undefined && paths?.data.items?.length === 0 && (
+                {(!paths?.data?.items || paths?.data?.items?.length == 0) && (
                     <Alert>
                     <AlertTriangle className="h-10 w-10" />
                     <AlertTitle>Set up some streams!</AlertTitle>
                     <AlertDescription>
-                        {`No live streams detected. Add some streams to MediaMTX to view`}
+                        {`No live streams detected. Add some streams to CRMA-MX to view`}
                     </AlertDescription>
                     </Alert>
                 )}
@@ -49,7 +50,7 @@ export default function DisplayStreams() {
             <AlertTriangle className="h-10 w-10" />
             <AlertTitle>Heads up!</AlertTitle>
             <AlertDescription>
-                {`We couldn't reach the MediaMTX server. Please check the url in your
+                {`We couldn't reach the CRMA-MX server. Please check the url in your
                 configuration`}
             </AlertDescription>
             </Alert>

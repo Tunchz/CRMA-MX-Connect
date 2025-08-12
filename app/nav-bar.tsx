@@ -56,9 +56,7 @@ export default function NavBar({ items }: Props) {
                 <DropdownMenuItem asChild>
                   <Link
                     href={`/${curQueryRef.current || ''}`}
-                    className={cn(
-                      "text-primary font-extrabold transition-colors hover:text-primary",
-                    )}
+                    className={cn("text-primary font-extrabold transition-colors hover:text-primary",{ "main-color": pathname == "/" })}
                   >
                     CRMA-MX
                   </Link>
@@ -71,6 +69,7 @@ export default function NavBar({ items }: Props) {
                       className={cn(
                         "text-muted-foreground transition-colors hover:text-primary",
                         { "text-primary": pathname?.includes(location) },
+                        { "main-color": pathname?.includes(location) },
                       )}
                     >
                       {name}
