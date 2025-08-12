@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 
 export default function Cam({ props }: { props: { address: string } }) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const destroyRef = useRef(false);
   useEffect(() => {
     console.log("useeffect");
     const create = (video: HTMLVideoElement) => {
@@ -23,7 +24,7 @@ export default function Cam({ props }: { props: { address: string } }) {
 
           hls.destroy();
 
-          video&&setTimeout(() => create(video), 2000);
+          !destroyRef.current&&setTimeout(() => create(video), 2000);
         }
       });
 
@@ -54,6 +55,7 @@ export default function Cam({ props }: { props: { address: string } }) {
       console.log("useEffect return >> hls destroy");
       hls?.destroy();
       videoRef.current = null;
+      destroyRef.current = true;
     };
   }, [props.address]);
   return (
