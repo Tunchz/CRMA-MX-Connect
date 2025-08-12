@@ -8,7 +8,7 @@ export default function SW() {
     if ("serviceWorker" in navigator) {
       console.log("in here 2");
       navigator.serviceWorker
-        .register("/sw.js")
+        .register("./sw.js")
         .then(() => console.log("service worker installed"))
         .catch((err) => console.error("Error", err));
     }
