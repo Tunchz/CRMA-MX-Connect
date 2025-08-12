@@ -18,7 +18,7 @@ const isStreamArrEqul = (arr1:any[],arr2:any[]) => {
         return false;
     }
 
-    let arr2Obj:any = {};
+    const arr2Obj:any = {};
     arr2?.map((r:any)=>arr2Obj[r.name]=true);
     if (arr1?.some((r:any)=>!arr2Obj[r.name])) {
       return false;
