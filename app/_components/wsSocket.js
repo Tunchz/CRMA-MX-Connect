@@ -84,7 +84,7 @@ class CWSTcp {
 
 
 // const ExeHostIP = 'ws://10.10.10.215:880';  //Keep a long connection 
-const ExeHostIP = 'ws://academics.crma.dev/ipcam-webviewer-ws';  //Keep a long connection 
+const ExeHostIP = 'wss://academics.crma.dev/ipcam-webviewer-ws';  //Keep a long connection 
 class Instance extends CWSTcp {
     constructor() {
         super()
