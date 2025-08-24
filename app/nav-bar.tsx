@@ -85,10 +85,10 @@ export default function NavBar({ items }: Props) {
       <div className="flex flex-1 items-center justify-end">
         <nav className="flex space-x-4 px-2 items-center">
           
-          {pathname == "/" && <Button className="main-color px-2" style={{marginRight:-12}} variant={"ghost"} onClick={() => {setColNum(colNum=='sx'?'small':colNum=='small'?'medium':colNum=='medium'?'large':colNum=='large'?'xlarge':colNum=='xlarge'?'small':'small')}}>
+          {(pathname == "/" || pathname?.includes('ipcam-webviewer')) && <Button className="main-color px-2" style={{marginRight:-12}} variant={"ghost"} onClick={() => {setColNum(colNum=='sx'?'small':colNum=='small'?'medium':colNum=='medium'?'large':colNum=='large'?'xlarge':colNum=='xlarge'?'small':'small')}}>
             {colNum=='small'?<Columns2/>:colNum=='medium'?<Columns3/>:colNum=='large'?<Columns4/>:colNum=='xlarge'?<Columns4/>:<Columns2/>}
           </Button>}
-          {pathname == "/" && <div className="toggle" style={{display:'flex'}}>
+          {(pathname == "/" || pathname?.includes('ipcam-webviewer')) && <div className="toggle" style={{display:'flex'}}>
               <input type="checkbox" checked={autoPlay} onChange={()=>setAutoPlay(!autoPlay)} />
               <label>{autoPlay?<Play style={{marginLeft:1}} />:<Pause />}</label>
               {/* <label> AutoPlay</label> */}

@@ -267,6 +267,18 @@
   color: #0062ff;
 }
 
+.success-color {
+  color: #09f66ce0;
+  font-weight: 600;
+}
+
 .main-bgcolor {
   background: #0062ff;
+}
+
+.no-select {
+  -webkit-user-select: none; /* Safari, Chrome, Opera */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Standard syntax */
 }

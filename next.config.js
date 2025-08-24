@@ -8,6 +8,16 @@ const nextConfig = {
     instrumentationHook: true,
     webpackBuildWorker: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'academics.crma.dev',
+        port: '',
+        pathname: '/ipcam-webviewer/**'
+      }
+    ],
+  },
   webpack: (config, { webpack }) => {
     // https://github.com/fluent-ffmpeg/node-fluent-ffmpeg/issues/573#issuecomment-1629414369
     config.plugins.push(

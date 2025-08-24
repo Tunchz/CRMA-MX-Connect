@@ -22,6 +22,7 @@ export default async function RootLayout({
 }) {
   const navItems = [
     { name: "Recordings", location: "/recordings" },
+    { name: "IPCam Webviewer", location: "/ipcam-webviewer" },
     // { name: "Config", location: "/config" },
   ];
 
