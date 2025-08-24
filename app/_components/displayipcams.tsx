@@ -182,6 +182,9 @@ export default function DisplayStreams() {
     };
 
     const handleLogout = ()=>{
+        settings.devList?.map((r:any)=>{
+            instance.current?.disconnectDev(session,r.uid);
+        })
         localStorage.setItem('userId','');
         localStorage.setItem('userPwd','');
         localStorage.setItem('login','');
@@ -233,14 +236,17 @@ export default function DisplayStreams() {
         )
         :(
             <div>
-            <Button
-                disabled={!userID || !userPwd}
-                onClick={()=>handleLogout()}
-                className='main-color'
-                style={{float:'right', marginTop:'-80px', backgroundColor:'#FFF0'}}
-            >
-                Log Out
-            </Button>
+                <div style={{float:'right', marginTop:'-80px', display:'flex', flexDirection:'column', alignItems:'flex-end'}}>
+                <AlertTitle style={{marginRight: 16}}>{userID}</AlertTitle>
+                <Button
+                    disabled={!userID || !userPwd}
+                    onClick={()=>handleLogout()}
+                    className='main-color'
+                    style={{marginLeft:'auto', backgroundColor:'#FFF0', padding: '3px 16px', height: 30}}
+                >
+                    Log Out
+                </Button>
+                </div>
             <GridLayout columnLayout={colNum}>
                 {(!(settings?.devList?.length > 0)) && (
                     <Alert>
